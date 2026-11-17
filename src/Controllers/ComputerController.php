@@ -10,13 +10,13 @@ class ComputerController {
         require_once __DIR__ . '/../Views/computers/index.php';
     }
 
-    public function show(int $id): void {
+    public function show(string $id): void {
         $computerModel = new Computer();
         $softwareModel = new Software();
 
         $computer = $computerModel->findById($id);
         if (!$computer) {
-            header('Location: index.php?action=computers');
+            header('Location: /html/Projet_TechStock/public/index.php?action=computers');
             exit;
         }
 

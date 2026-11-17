@@ -14,7 +14,7 @@
                 <thead class="table-light">
                     <tr>
                         <th>Nom machine</th>
-                        <th>Utilisateur</th>
+                        <th>Modèle</th>
                         <th>OS</th>
                         <th>RAM</th>
                         <th>Processeur</th>
@@ -25,14 +25,14 @@
                 <tbody>
                     <?php foreach ($computers as $pc): ?>
                         <tr>
-                            <td class="fw-bold"><?= htmlspecialchars($pc['hostname']); ?></td>
-                            <td><?= htmlspecialchars($pc['username']); ?></td>
-                            <td><span class="badge bg-secondary"><?= htmlspecialchars($pc['os']); ?></span></td>
-                            <td><?= htmlspecialchars($pc['ram']); ?></td>
-                            <td><?= htmlspecialchars($pc['cpu']); ?></td>
-                            <td><code><?= htmlspecialchars($pc['ip_address']); ?></code></td>
+                            <td class="fw-bold"><?= htmlspecialchars($pc['id']); ?></td>
+                            <td><?= htmlspecialchars(($pc['fabricant'] ?? '') . ' ' . ($pc['modele'] ?? '')); ?></td>
+                            <td><span class="badge bg-secondary"><?= htmlspecialchars($pc['os_nom']); ?></span></td>
+                            <td><?= htmlspecialchars($pc['memoire_ram_go']); ?> Go</td>
+                            <td><?= htmlspecialchars($pc['processeur']); ?></td>
+                            <td><code><?= htmlspecialchars($pc['adresse_ip'] ?? 'N/A'); ?></code></td>
                             <td class="text-end">
-                                <a href="index.php?action=show&id=<?= (int)$pc['id']; ?>" class="btn btn-sm btn-primary">
+                                <a href="/html/Projet_TechStock/public/index.php?action=show&id=<?= urlencode($pc['id']); ?>" class="btn btn-sm btn-primary">
                                     Détails & Logiciels
                                 </a>
                             </td>

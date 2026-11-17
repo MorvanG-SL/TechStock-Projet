@@ -1,46 +1,57 @@
 <?php require_once __DIR__ . '/../layout/header.php'; ?>
 
 <div class="mb-4">
-    <a href="index.php?action=computers" class="btn btn-outline-secondary btn-sm mb-3">
+    <a href="/html/Projet_TechStock/public/index.php?action=computers" class="btn btn-outline-secondary btn-sm mb-3">
         &larr; Retour à la liste des ordinateurs
     </a>
-    <h2 class="fw-bold mb-0">Fiche Poste : <?= htmlspecialchars($computer['hostname']); ?></h2>
-    <p class="text-muted">Dernière remontée : <?= htmlspecialchars($computer['last_seen']); ?></p>
+    <h2 class="fw-bold mb-0">Fiche Poste : <?= htmlspecialchars($computer['id']); ?></h2>
+    <p class="text-muted">Dernier inventaire PowerShell : <?= htmlspecialchars($computer['date_inventaire']); ?></p>
 </div>
 
-<!-- Caractéristiques matérielles -->
+<!-- Configuration Matérielle & Composants Système -->
 <div class="card border-0 shadow-sm mb-4">
     <div class="card-header bg-white fw-bold">Configuration Matérielle & Système</div>
     <div class="card-body">
         <div class="row g-3">
             <div class="col-md-4">
-                <small class="text-muted d-block">Utilisateur principal</small>
-                <strong><?= htmlspecialchars($computer['username']); ?></strong>
+                <small class="text-muted d-block">Fabricant / Modèle</small>
+                <strong><?= htmlspecialchars(($computer['fabricant'] ?? 'Inconnu') . ' — ' . ($computer['modele'] ?? 'Inconnu')); ?></strong>
             </div>
             <div class="col-md-4">
-                <small class="text-muted d-block">Système d'exploitation</small>
-                <strong><?= htmlspecialchars($computer['os']); ?></strong>
+                <small class="text-muted d-block">Numéro de série (BIOS)</small>
+                <code><?= htmlspecialchars($computer['numero_serie'] ?? 'N/A'); ?></code>
             </div>
             <div class="col-md-4">
                 <small class="text-muted d-block">Adresse IP</small>
-                <code><?= htmlspecialchars($computer['ip_address']); ?></code>
+                <code><?= htmlspecialchars($computer['adresse_ip'] ?? 'N/A'); ?></code>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
+                <small class="text-muted d-block">Système d'exploitation</small>
+                <strong><?= htmlspecialchars($computer['os_nom']); ?></strong>
+                <?php if (!empty($computer['os_version'])): ?>
+                    <span class="text-muted small">(Build <?= htmlspecialchars($computer['os_version']); ?>)</span>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-4">
                 <small class="text-muted d-block">Processeur (CPU)</small>
-                <strong><?= htmlspecialchars($computer['cpu']); ?></strong>
+                <strong><?= htmlspecialchars($computer['processeur']); ?></strong>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <small class="text-muted d-block">Mémoire Vive (RAM)</small>
-                <strong><?= htmlspecialchars($computer['ram']); ?></strong>
+                <strong><?= htmlspecialchars($computer['memoire_ram_go']); ?> Go</strong>
+            </div>
+            <div class="col-12">
+                <small class="text-muted d-block">Stockage & Espace libre</small>
+                <strong><?= htmlspecialchars($computer['disques_libre_go'] ?? 'Non renseigné'); ?></strong>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Liste des logiciels installés -->
+<!-- Environnement Logiciel -->
 <div class="card border-0 shadow-sm">
-    <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
-        <span>Logiciels installés (<?= count($softwares); ?>)</span>
+    <div class="card-header bg-white fw-bold">
+        Environnement Logiciel (<?= count($softwares); ?> applications détectées)
     </div>
     <div class="card-body">
         <div class="table-responsive">

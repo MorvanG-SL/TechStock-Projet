@@ -13,7 +13,10 @@ $(document).ready(function () {
                 previous: "Précédent"
             }
         },
-        pageLength: 10
+        pageLength: 10,
+        initComplete: function () {
+            $('.dataTables_length select').addClass('w-auto d-inline-block');
+        }
     };
 
     if ($('#computersTable').length) {

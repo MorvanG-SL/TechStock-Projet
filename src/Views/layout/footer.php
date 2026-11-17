@@ -14,7 +14,7 @@
                         <a href="http://10.29.160.9/adminer.php" target="_blank" class="nav-link px-2 text-muted">Adminer</a>
                     </li>
                     <li class="nav-item">
-                        <a href="index.php?action=home" class="nav-link px-2 text-muted">Accueil</a>
+                        <a href="/html/Projet_TechStock/public/index.php?action=home" class="nav-link px-2 text-muted">Accueil</a>
                     </li>
                 </ul>
             </div>
@@ -22,11 +22,10 @@
     </div>
 </div>
 
-<!-- Scripts JS hébergés localement sur Proxmox -->
-<script src="js/jquery-3.7.0.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/jquery.dataTables.min.js"></script>
-<script src="js/dataTables.bootstrap5.min.js"></script>
-<script src="js/main.js"></script>
+<script src="/html/Projet_TechStock/public/js/jquery-3.7.0.min.js"></script>
+<script src="/html/Projet_TechStock/public/js/bootstrap.bundle.min.js"></script>
+<script src="/html/Projet_TechStock/public/js/jquery.dataTables.min.js"></script>
+<script src="/html/Projet_TechStock/public/js/dataTables.bootstrap5.min.js"></script>
+<script src="/html/Projet_TechStock/public/js/main.js"></script>
 </body>
 </html>

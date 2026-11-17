@@ -3,39 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion Parc Informatique</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- DataTables Bootstrap 5 CSS -->
-    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <title>TechStock — Gestion Parc Informatique</title>
+    <link rel="stylesheet" href="/html/Projet_TechStock/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/html/Projet_TechStock/public/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="/html/Projet_TechStock/public/css/style.css">
 </head>
-<body class="bg-light">
+<body class="bg-light d-flex flex-column min-vh-100">
 
-    <!-- Navbar horizontale -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="index.php?action=home">Parc Info</a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=home">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=computers">Tous les ordinateurs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?action=inventory">Inventaire</a>
-                    </li>
-                </ul>
-            </div>
+<div class="d-flex flex-grow-1">
+    <!-- Menu latéral -->
+    <nav class="bg-dark text-white p-3 d-flex flex-column" style="width: 250px; min-height: 100vh;">
+        <a href="/html/Projet_TechStock/public/index.php?action=home" class="navbar-brand fw-bold fs-4 text-white mb-4 text-decoration-none">
+            TechStock V0
+        </a>
+        <ul class="nav nav-pills flex-column mb-auto gap-1">
+            <li class="nav-item">
+                <a href="/html/Projet_TechStock/public/index.php?action=home" class="nav-link text-white <?= ($_GET['action'] ?? 'home') === 'home' ? 'active' : '' ?>">
+                    Accueil
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/html/Projet_TechStock/public/index.php?action=computers" class="nav-link text-white <?= in_array($_GET['action'] ?? '', ['computers', 'show']) ? 'active' : '' ?>">
+                    Tous les ordinateurs
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/html/Projet_TechStock/public/index.php?action=inventory" class="nav-link text-white <?= ($_GET['action'] ?? '') === 'inventory' ? 'active' : '' ?>">
+                    Inventaire logiciel
+                </a>
+            </li>
+        </ul>
+        <hr class="text-secondary">
+        <div class="small text-secondary">
+            Serveur : 10.29.160.9
         </div>
     </nav>
 
-    <!-- Début du conteneur principal de la page -->
-    <div class="container">
+    <div class="flex-grow-1 d-flex flex-column">
+        <main class="container-fluid p-4 flex-grow-1">

@@ -11,7 +11,7 @@
                 <a href="index.php?action=computers" class="btn btn-primary btn-lg">
                     Consulter l'inventaire complet
                 </a>
-             <a href="http://10.29.160.9:12322" target="_blank" class="btn btn-outline-secondary btn-lg">
+             <a href="https://10.29.160.9:12322" target="_blank" class="btn btn-outline-secondary btn-lg">
                     Accès Base de données (Adminer)
                 </a>
             </div>

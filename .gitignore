@@ -1,0 +1,5 @@
+.env
+vendor/
+node_modules/
+.vscode/config/api.php
+config/database.php
